@@ -9,6 +9,10 @@ let lista_codigos = JSON.parse(localStorage.getItem("mis_codigos")) || [];
 let base_codigos = document.getElementById("base_codigos");
 let dato_cod_textarea = document.getElementById("dato_cod");
 let codigos_div = document.getElementById("codigos");
+let resultado_ip_div = document.getElementById("resultado_ip");
+let datos_ip = document.getElementById("datos_ip");
+const modulos = [base_codigos, datos_ip];
+
 
 actualizar_texto(); 
 
@@ -60,10 +64,39 @@ function guardar_cod() {
         }, 1);
     }
 }
-function base_cod() {
-    if (base_codigos.style.display === "block") {
-        base_codigos.style.display = "none";
-    } else {
-        base_codigos.style.display = "block";
+
+
+async function buscar_ip() {
+    let ip = document.getElementById("text_ip").value;
+    if (ip !== "") {
+        let respuesta = await fetch(`http://ip-api.com/json/${ip}`);
+        let datos = await respuesta.json();
+        resultado_ip_div.innerHTML = `
+            <p><strong>Ciudad:</strong> ${datos.city}</p>
+            <p><strong>Región:</strong> ${datos.regionName}</p>
+            <p><strong>País:</strong> ${datos.country}</p>
+            <p><strong>Organización:</strong> ${datos.org}</p>
+            <p><strong>ASN:</strong> ${datos.as}</p>
+            <p><strong>Código Postal:</strong> ${datos.zip}</p>
+            <p><strong>Latitud:</strong> ${datos.lat}</p>
+            <p><strong>Longitud:</strong> ${datos.lon}</p>
+            <p><strong>Dirección IP:</strong> ${datos.query}</p>`;
     }
 }
+function mostrarModulo(moduloSeleccionado) {
+    for (const modulo of modulos) {
+        if (modulo === moduloSeleccionado) {
+            // Alternamos entre block y none directamente en el estilo en línea
+            if (modulo.style.display === "block") {
+                modulo.style.display = "none";
+            } else {
+                modulo.style.display = "block";
+            }
+        } else {
+            // Todos los demás módulos se ocultan obligatoriamente
+            modulo.style.display = "none";
+        }
+    }
+}
+
+

@@ -1,8 +1,15 @@
-// Registramos el Service Worker si el navegador lo soporta
+// Comprobamos si el navegador del usuario soporta Service Workers (Ingeniería defensiva)
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
-        .then(() => console.log("PWA: Registrada correctamente"))
-        .catch((err) => console.log("PWA: Error al registrar", err));
+  // Esperamos a que la página se cargue por completo antes de registrarlo
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then((registro) => {
+        console.log('PWA: Service Worker registrado con éxito en el alcance:', registro.scope);
+      })
+      .catch((error) => {
+        console.error('PWA: Falló el registro del Service Worker:', error);
+      });
+  });
 }
 
 let lista_codigos = JSON.parse(localStorage.getItem("mis_codigos")) || [];

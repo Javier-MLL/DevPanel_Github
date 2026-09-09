@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Panel de Desarrollador</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="titulo">Panel de Desarrollador</h1>
+    <a href="./aboutme.html" id="ab_img"><img src="./1.jpg" id="ab_img" class="img"></a>
+    <button onclick="base_cod()" id="b_base">Base de codigos</button>
+    <div id="base_codigos" class="div_herramienta">
+        <textarea id="dato_cod" placeholder="Ingrese el texto para guardar aqui..." class="textarea"></textarea>
+        <button onclick="guardar_cod()" id="guardar_but">Guardar</button>
+        <button onclick="actualizar_texto()" id="ac_but">Actualizar la base de datos</button>
+        <div id="codigos"></div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>

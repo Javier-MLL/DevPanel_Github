@@ -1,0 +1,15 @@
+{
+  "name": "Panel de Desarrollo v.1.0 | Apeivex Technologies",
+  "short_name": "DevPanel",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1A5F69",
+  "theme_color": "#36C1D1",
+  "icons": [
+    {
+      "src": "icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

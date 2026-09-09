@@ -1,0 +1,68 @@
+body {
+    background-color: #327580;
+}
+
+
+#titulo{
+    position: relative;
+    left: 10px;
+    text-align: center;
+    font-size: 35px;
+    font-family: Google Sans, sans-serif;
+    color: #000000;
+}
+
+#b_base {
+    position:absolute;
+    top: 70px;
+    margin: 1px;
+    padding: 7px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+.div_herramienta{
+    position: relative;
+    top: 60px;
+    display: none;
+}
+
+.textarea{
+    width: 356px;
+    height: 109px;
+    border-radius: 5px;
+}
+
+#guardar_but{
+    width: 65px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+#codigo{
+
+    font-family: fira Code, monospace;
+}
+
+#codigos{
+    position: relative;
+    top: 15px;
+}
+
+#ab_img{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    height: 50px;
+    width: 50px;
+}
+
+.img{
+    border-radius: 50%;
+    border: 5px;
+}
+
+#ac_but{
+    border-radius: 5px;
+}
